@@ -1,5 +1,5 @@
 # README TESTE
 
 This repository has:
-* * Client *
-* * Server *
+* *Client*
+* *Server*
