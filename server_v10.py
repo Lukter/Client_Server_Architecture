@@ -1,5 +1,6 @@
 import socket
 import logging
+import os
 from threading import Thread
 from random import randint
 
@@ -80,7 +81,7 @@ class ClientThread(Thread):
 
 def log():
     logger = logging.getLogger('server')
-    hdlr = logging.FileHandler('server.log')
+    hdlr = logging.FileHandler(os.path.join(os.path.dirname(__file__), 'server_v10.log'))
     formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
     hdlr.setFormatter(formatter)
     logger.addHandler(hdlr)
