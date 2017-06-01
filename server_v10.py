@@ -14,7 +14,7 @@ class ClientThread(Thread):
 
     def run(self):
         while True:
-            data = self.socket.recv(1024)
+            data = self.socket.recv(BUFFER_SIZE)
             if data == '':
                 print "Client " + str(self.ID) + " disconnected"
                 logger.info("Client " + str(self.ID) + " disconnected")
@@ -30,8 +30,8 @@ class ClientThread(Thread):
                            + "made an odd number requisition")
                     logger.info("Client " + str(self.ID)
                                 + " made an odd number requisition")
-                    odd_number = newthread.odd()
-                    newthread.store(odd_number, 1)
+                    odd_number = client_thread.odd()
+                    client_thread.store(odd_number, 1)
                     self.socket.send(str(odd_number))
                     print ("Odd number sent to client: "
                            + str(self.ID) + " : " + str(odd_number))
@@ -42,15 +42,15 @@ class ClientThread(Thread):
                            + " made an even number requisition")
                     logger.info("Client " + str(ID)
                                 + " made an even number requisition")
-                    even_number = newthread.even()
-                    newthread.store(even_number, 1)
+                    even_number = client_thread.even()
+                    client_thread.store(even_number, 1)
                     self.socket.send(str(even_number))
                     print ("Even number sent to client " + str(self.ID)
                            + " : " + str(even_number))
                     logger.info("Even number sent to client "
                                 + str(self.ID) + " : " + str(even_number))
                 if select[messages] != 'odd' and select[messages] != 'even':
-                    newthread.store(select[messages], 0)
+                    client_thread.store(select[messages], 0)
                 messages = messages - 1
             s_socket.listen(4)
 
@@ -134,6 +134,6 @@ while True:
     conn.send(str(connect(ID)))
     print "Counter sent to client with ID: " + ID
     logger.info("Counter sent to client " + ID)
-    newthread = ClientThread(ip, port, conn, ID)
-    newthread.start()
-    threads.append(newthread)
+    client_thread = ClientThread(ip, port, conn, ID)
+    client_thread.start()
+    threads.append(client_thread)
