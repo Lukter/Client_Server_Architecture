@@ -18,6 +18,10 @@ This project consists in the implementation of a server-client architecture usin
 2. Server computes a random odd nuber within rang 0-99.
 3. Save every message in a log file.
 
+### How to use
+1. Open terminal and run server_v10.py
+2. Open another terminal and run client_v10.py
+
 ## Notes
 
 ### General
