@@ -42,7 +42,7 @@ ID = randint(0, 10000)
 host = socket.gethostname()
 port = 2004
 BUFFER_SIZE = 1024
-register= False
+register = False
 threads = []
 print "c - connect to server"
 print "s - shutdown client"

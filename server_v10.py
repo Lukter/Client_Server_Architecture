@@ -71,7 +71,7 @@ class ClientThread(Thread):
         else:
             return number-1
 
-    def store(self, item, signal): #0 - store number | 1 - store counter
+    def store(self, item, signal):
         if signal == 0:
             list_calc.insert(list_client.index(ID), item)
         if signal == 1:
@@ -81,7 +81,8 @@ class ClientThread(Thread):
 
 def log():
     logger = logging.getLogger('server')
-    hdlr = logging.FileHandler(os.path.join(os.path.dirname(__file__), 'server_v10.log'))
+    hdlr = logging.FileHandler(os.path.join(os.path.dirname(__file__),
+                               'server_v10.log'))
     formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
     hdlr.setFormatter(formatter)
     logger.addHandler(hdlr)
@@ -93,9 +94,9 @@ def connect(key):
     if key in list_client:
         print "Client already registered"
         logger.info("Client already registered")
-        print ("Client ID: " + str(key) + "Client last calculated number: "
+        print ("Client ID: " + str(key) + "Last calculated number: "
                + str(list_calc[list_client.index(key)]))
-        logger.info("Client ID: " + str(key) + "Client last calculated number: "
+        logger.info("Client ID: " + str(key) + "Last calculated number: "
                     + str(list_calc[list_client.index(key)]))
         return list_calc[list_client.index(key)]
     else:
