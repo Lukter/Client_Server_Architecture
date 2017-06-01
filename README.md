@@ -1,8 +1,8 @@
 # README CLIENT-SERVER ARCHITECTURE
 
 This repository has:
-**Client**
-**Server**
+* **Client*
+* **Server*
 
 ## Client-Server Architecture
 This project consists in the implementation of a server-client architecture using TCP sockets. This solution use threads and TCP socket.
@@ -18,8 +18,9 @@ This project consists in the implementation of a server-client architecture usin
 2. Server computes a random odd nuber within rang 0-99.
 3. Save every message in a log file.
 
-##Notes:
-### General:
+## Notes
+
+### General
 1. Its tried to use only thread-safe functions.
 2. It was used processes to differentiate client and server. The real number of clients is limited by available memory.
  
