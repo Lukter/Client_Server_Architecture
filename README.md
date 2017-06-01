@@ -1,8 +1,8 @@
 # README CLIENT-SERVER ARCHITECTURE
 
 This repository has:
-* **Client*
-* **Server*
+* *Client*
+* *Server*
 
 ## Client-Server Architecture
 This project consists in the implementation of a server-client architecture using TCP sockets. This solution use threads and TCP socket.
